@@ -13,17 +13,25 @@ export const Footer: React.FC = () => {
         className="absolute inset-0 w-full h-full object-cover pointer-events-none z-0 opacity-40"
       />
 
-      {/* Background Wordmark - Absolute & Decorative */}
-      <div className="footer-watermark pointer-events-none select-none absolute bottom-0 left-1/2 -translate-x-1/2 leading-none z-[1]">
-        <span className="
-          font-syne font-semibold tracking-wide text-center whitespace-nowrap text-white
-          opacity-[0.06]
-          text-[clamp(4.5rem,16vw,7rem)]
-          md:text-[clamp(6rem,18vw,10rem)]
-          lg:text-[clamp(8rem,18vw,12rem)]
-        ">
-          CLELAND
-        </span>
+      {/* Background Wordmark - NOVUS Treatment */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none z-[1] flex flex-col justify-end overflow-hidden">
+        {/* Horizontal Rule - Top Third (~33%) */}
+        <div className="absolute top-[33%] left-0 w-full h-[1px] bg-white/[0.06]" />
+
+        {/* Wordmark Container - Centered, Cropped at bottom */}
+        <div className="relative w-full flex justify-center items-end translate-y-[15%] md:-translate-y-[5%] opacity-[0.45]">
+          <span className="
+            font-syne font-[800] tracking-tight text-center whitespace-nowrap text-white
+            leading-[0.8]
+            blur-[1px]
+            text-[clamp(48px,13.5vw,250px)]
+          ">
+            CLELAND
+          </span>
+        </div>
+
+        {/* Bottom Gradient - Fades the ghost text into the footer floor */}
+        <div className="absolute bottom-0 left-0 w-full h-[60%] bg-gradient-to-t from-[#050508] via-[#050508]/80 to-transparent" />
       </div>
 
       <div className="max-w-[1400px] mx-auto relative z-10">

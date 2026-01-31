@@ -70,7 +70,23 @@ export function Hero21st() {
               - Widened footprint (75-85%) to prevent arm clipping
               - Pointer events auto (interactive scene)
             */}
-            <div className="absolute top-0 right-0 bottom-0 w-[140%] md:w-[90%] lg:w-[85%] z-10 pointer-events-none flex items-center justify-center translate-x-[45%] md:translate-x-[30%] lg:translate-x-[15%]">
+            <div
+                className="
+                    absolute top-0 right-0 bottom-0 z-10 pointer-events-none
+                    flex items-center justify-end
+                    w-[var(--spline-w)]
+                    translate-x-[var(--spline-x)]
+                    md:w-[90%] md:translate-x-[30%]
+                    lg:w-[85%] lg:translate-x-[15%]
+                "
+                style={
+                    {
+                        /* Mobile-only framing knobs */
+                        "--spline-w": "160%",
+                        "--spline-x": "88%",
+                    } as React.CSSProperties
+                }
+            >
                 <div className="w-full h-full relative pointer-events-auto">
                     <SplineScene
                         scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
