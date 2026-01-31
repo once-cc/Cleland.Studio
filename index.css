@@ -49,6 +49,39 @@
     color: transparent;
     -webkit-text-fill-color: transparent;
   }
+
+  /* Hero Spline Inner Transform Control (Three-Tier Responsive) */
+  /* Mobile: Tight compositional transforms + feathered mask */
+  .heroSplineInner {
+    transform: translateX(var(--sx)) translateY(var(--sy)) scale(var(--ss));
+  }
+
+  /* Tablet (md): Lighter transforms for natural expansion - NO MASK */
+  @media (min-width: 768px) {
+    .heroSplineInner {
+      transform: translateX(var(--sx-md)) translateY(var(--sy-md)) scale(var(--ss-md));
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
+  }
+
+  /* iPad Pro / Large Tablets (lg): Camera framing for 1024px+ tablets */
+  @media (min-width: 1024px) {
+    .heroSplineInner {
+      transform: translateX(40%);
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
+  }
+
+  /* Desktop (xl+): Camera framing offset for true desktop */
+  @media (min-width: 1280px) {
+    .heroSplineInner {
+      transform: translateX(30%);
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
+  }
 }
 
 @font-face {

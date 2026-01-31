@@ -109,7 +109,7 @@ const CraftLayout: React.FC<CraftLayoutProps> = ({ activeIndex, onNavigate, scro
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -3 }}
                         transition={{ duration: 0.3, ease: "easeOut" }}
-                        className="font-cormorant text-xl text-ivory/90 leading-relaxed text-left col-start-1 row-start-1"
+                        className="font-cormorant text-xl text-ivory/90 leading-[1.55] text-left col-start-1 row-start-1"
                       >
                         {craftSteps[activeIndex].punchline}
                       </motion.p>
