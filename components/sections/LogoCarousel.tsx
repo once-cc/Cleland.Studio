@@ -1,0 +1,63 @@
+import React from 'react';
+import { InfiniteCarouselRow } from '../ui/InfiniteCarouselRow';
+
+// Import logos directly from assets
+import framerMotionLogo from '../../assets/brandlogos/framermotion-white.svg';
+import githubLogo from '../../assets/brandlogos/github-white.svg';
+import openaiLogo from '../../assets/brandlogos/openai-white.svg';
+import resendLogo from '../../assets/brandlogos/resend-white.svg';
+import supabaseLogo from '../../assets/brandlogos/supabase.svg';
+import vercelLogo from '../../assets/brandlogos/vercel-white.svg';
+import viteLogo from '../../assets/brandlogos/vite.svg';
+
+interface BrandLogo {
+    name: string;
+    src: string;
+}
+
+export const LogoCarousel: React.FC = () => {
+    const logos: BrandLogo[] = [
+        { name: 'Framer Motion', src: framerMotionLogo },
+        { name: 'GitHub', src: githubLogo },
+        { name: 'OpenAI', src: openaiLogo },
+        { name: 'Resend', src: resendLogo },
+        { name: 'Supabase', src: supabaseLogo },
+        { name: 'Vercel', src: vercelLogo },
+        { name: 'Vite', src: viteLogo },
+    ];
+
+    return (
+        <section
+            className="w-full bg-white/[0.018] border-y border-white/5 py-12 lg:py-16"
+            aria-label="Technology Stack"
+        >
+            {/* Centering Wrapper - defines horizontal origin */}
+            <div className="w-full flex justify-center">
+                {/* GPU Rendering Canvas - defines the compositing boundary */}
+                <div className="w-full xl:w-[1280px]">
+                    <InfiniteCarouselRow
+                        items={logos}
+                        speedPxPerSec={40} // Moderate, constant speed
+                        direction="left"
+                        slowDownOnHover={false} // No interaction
+                        className="gap-16 md:gap-24 lg:gap-32 px-8"
+                        renderItem={(logo) => (
+                            <div
+                                className="flex items-center justify-center opacity-20 grayscale transition-nothing select-none"
+                                title={logo.name}
+                            >
+                                <img
+                                    src={logo.src}
+                                    alt={logo.name}
+                                    className="h-6 md:h-8 w-auto object-contain brightness-0 invert"
+                                    style={{ maxWidth: '140px' }} // constraint for wider logos like simple wordmarks
+                                    loading="lazy"
+                                />
+                            </div>
+                        )}
+                    />
+                </div>
+            </div>
+        </section>
+    );
+};

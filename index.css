@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --nav-height: 96px;
+  }
+
+  @media (max-width: 1024px) {
+    :root {
+      --nav-height: 72px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    :root {
+      --nav-height: 64px;
+    }
+  }
+
+  html {
+    scroll-padding-top: var(--nav-height);
+  }
+}
+
+@layer utilities {
+  .pt-nav {
+    padding-top: var(--nav-height);
+  }
+
+  .top-nav {
+    top: var(--nav-height);
+  }
+
+  .h-viewport-safe {
+    min-height: calc(100vh - var(--nav-height));
+  }
+
+  .editorial-surface {
+    @apply bg-studio-bg/80 backdrop-blur-md border-b border-white/5;
+  }
+
+  .font-domaine-narrow {
+    font-family: "Domaine Display Narrow", serif;
+    background: linear-gradient(180deg, #FFFFFF 0%, #808080 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+@font-face {
+  font-family: "Domaine Display Narrow";
+  src: url("./assets/fonts/DomaineDispNar-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Domaine Display Narrow";
+  src: url("./assets/fonts/DomaineDispNar-RegularItalic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Raela Pro";
+  src: url("./assets/fonts/LTS-Raela-Pro-Extra-Light.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Raela Pro";
+  src: url("./assets/fonts/LTS-Raela-Pro-ExtLt-Ita.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
