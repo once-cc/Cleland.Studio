@@ -1,5 +1,5 @@
 import React from 'react';
-import { InfiniteCarouselRow } from '../ui/InfiniteCarouselRow';
+import { InfiniteSlider } from '../ui/infinite-slider';
 
 // Import logos directly from assets
 import framerMotionLogo from '../../assets/brandlogos/framermotion-white.svg';
@@ -35,27 +35,28 @@ export const LogoCarousel: React.FC = () => {
             <div className="w-full flex justify-center">
                 {/* GPU Rendering Canvas - defines the compositing boundary */}
                 <div className="w-full xl:w-[1280px]">
-                    <InfiniteCarouselRow
-                        items={logos}
-                        speedPxPerSec={40} // Moderate, constant speed
-                        direction="left"
-                        slowDownOnHover={false} // No interaction
-                        className="gap-16 md:gap-24 lg:gap-32 px-8"
-                        renderItem={(logo) => (
+                    <InfiniteSlider
+                        gap={128}
+                        duration={25}
+                        direction="horizontal"
+                        reverse={false}
+                        className="px-8"
+                    >
+                        {logos.map((logo) => (
                             <div
-                                className="flex items-center justify-center opacity-20 grayscale transition-nothing select-none"
-                                title={logo.name}
+                                key={logo.name}
+                                className="flex items-center justify-center opacity-20 grayscale select-none"
                             >
                                 <img
                                     src={logo.src}
                                     alt={logo.name}
                                     className="h-6 md:h-8 w-auto object-contain brightness-0 invert"
-                                    style={{ maxWidth: '140px' }} // constraint for wider logos like simple wordmarks
+                                    style={{ maxWidth: '140px' }}
                                     loading="lazy"
                                 />
                             </div>
-                        )}
-                    />
+                        ))}
+                    </InfiniteSlider>
                 </div>
             </div>
         </section>
